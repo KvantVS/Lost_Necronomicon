@@ -1,0 +1,17 @@
+procedure TForm1.BitBtn1Click(Sender: TObject);
+var
+  a,i:integer;
+  s:string;
+  comp: TComponent;
+begin
+  label1.Caption:=inttostr(randSeed);
+  randomize;
+  label2.caption:=IntToStr(RandSeed);
+  for i:=0 to ComponentCount-1 do begin
+    a:=random(ImageList1.Count);
+    comp:=Components[i];
+    if comp.ClassName='TImage' then begin
+      ImageList1.GetBitmap(a,(comp as TImage).picture.Bitmap);
+    end;
+  end;
+end;
